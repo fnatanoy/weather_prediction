@@ -1,0 +1,88 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CommentLengthPlotter	../plotting_utils/plot_comment_length_hist.py	/^class CommentLengthPlotter:$/;"	kind:class	line:6
+EvaluateModel	../modeling/evaluate_model.py	/^class EvaluateModel:$/;"	kind:class	line:9
+Preprocessing	../preprocessing/preprocessing.py	/^class Preprocessing:$/;"	kind:class	line:11
+RocCurvePlotter	../plotting_utils/plot_roc_curve.py	/^class RocCurvePlotter:$/;"	kind:class	line:5
+TargetDistPlotter	../plotting_utils/plot_target_dist.py	/^class TargetDistPlotter:$/;"	kind:class	line:5
+TfidfPlotter	../plotting_utils/plot_tfidf.py	/^class TfidfPlotter:$/;"	kind:class	line:7
+TrainModel	../modeling/train_model.py	/^class TrainModel:$/;"	kind:class	line:8
+WordsCdfPlotter	../plotting_utils/plot_words_cdf.py	/^class WordsCdfPlotter:$/;"	kind:class	line:5
+_ALPHABET	../preprocessing/spelchek/spelchek.py	/^_ALPHABET = 'abcdefghijklmnopqrstuvwxyz'$/;"	kind:variable	line:42
+_DICTIONARY	../preprocessing/spelchek/spelchek.py	/^_DICTIONARY = {}$/;"	kind:variable	line:48
+__author__	../preprocessing/spelchek/spelchek.py	/^__author__ = 'stevet'$/;"	kind:variable	line:35
+__init__	../modeling/evaluate_model.py	/^    def __init__($/;"	kind:member	line:13
+__init__	../modeling/train_model.py	/^    def __init__($/;"	kind:member	line:15
+__init__	../preprocessing/preprocessing.py	/^    def __init__($/;"	kind:member	line:14
+__init__.py	../modeling/__init__.py	1;"	kind:file	line:1
+__init__.py	../plotting_utils/__init__.py	1;"	kind:file	line:1
+__init__.py	../preprocessing/__init__.py	1;"	kind:file	line:1
+__init__.py	../preprocessing/spelchek/__init__.py	1;"	kind:file	line:1
+_corpus	../preprocessing/spelchek/spelchek.py	/^_corpus = ($/;"	kind:variable	line:128
+add	../preprocessing/spelchek/spelchek.py	/^def add(word, priority=4):$/;"	kind:function	line:106
+calculate_mean_auc	../modeling/evaluate_model.py	/^    def calculate_mean_auc($/;"	kind:member	line:44
+checker	../preprocessing/preprocessing.py	/^        def checker($/;"	kind:function	line:71
+cleaner	../preprocessing/preprocessing.py	/^        def cleaner($/;"	kind:function	line:23
+color	../plotting_utils/plot_tfidf.py	/^    color = seaborn.color_palette()$/;"	kind:variable	line:8
+compile_model	../modeling/train_model.py	/^    def compile_model($/;"	kind:member	line:169
+corpus_object	../preprocessing/spelchek/spelchek.py	/^corpus_object = open(corpus_path, 'r')$/;"	kind:variable	line:127
+corpus_path	../preprocessing/spelchek/spelchek.py	/^corpus_path = os.path.abspath($/;"	kind:variable	line:119
+correct	../preprocessing/spelchek/spelchek.py	/^def correct(word):$/;"	kind:function	line:88
+data_analyze.py	../data_analyze.py	1;"	kind:file	line:1
+embedding_file_path	../modeling/train_model.py	/^    embedding_file_path = os.path.join($/;"	kind:variable	line:9
+evaluate_model.py	../evaluate_model.py	1;"	kind:file	line:1
+evaluate_model.py	../modeling/evaluate_model.py	1;"	kind:file	line:1
+evaluating_model	../modeling/train_model.py	/^    def evaluating_model($/;"	kind:member	line:227
+first_order_variants	../preprocessing/spelchek/spelchek.py	/^def first_order_variants(word):$/;"	kind:function	line:64
+get_cleaned_comments	../preprocessing/preprocessing.py	/^    def get_cleaned_comments($/;"	kind:member	line:19
+get_coefs	../modeling/train_model.py	/^        def get_coefs($/;"	kind:function	line:125
+get_comment_length_column	../preprocessing/preprocessing.py	/^    def get_comment_length_column($/;"	kind:member	line:57
+get_comment_spell_checked_column	../preprocessing/preprocessing.py	/^    def get_comment_spell_checked_column($/;"	kind:member	line:67
+get_embedding_matrix	../modeling/train_model.py	/^    def get_embedding_matrix($/;"	kind:member	line:121
+get_no_harm_column	../preprocessing/preprocessing.py	/^    def get_no_harm_column($/;"	kind:member	line:46
+get_pad_sequences	../preprocessing/preprocessing.py	/^    def get_pad_sequences($/;"	kind:member	line:163
+get_segmented_text_column	../preprocessing/preprocessing.py	/^    def get_segmented_text_column($/;"	kind:member	line:89
+get_stemmed_text_column	../preprocessing/preprocessing.py	/^    def get_stemmed_text_column($/;"	kind:member	line:120
+get_tfidf	../preprocessing/preprocessing.py	/^    def get_tfidf($/;"	kind:member	line:126
+get_top_tfidf_features	../plotting_utils/plot_tfidf.py	/^    def get_top_tfidf_features($/;"	kind:member	line:56
+get_word_count_obj	../preprocessing/preprocessing.py	/^    def get_word_count_obj($/;"	kind:member	line:158
+get_word_index	../preprocessing/preprocessing.py	/^    def get_word_index($/;"	kind:member	line:175
+guesses	../preprocessing/spelchek/spelchek.py	/^def guesses(word):$/;"	kind:function	line:97
+initialize_tokenizer	../preprocessing/preprocessing.py	/^    def initialize_tokenizer($/;"	kind:member	line:146
+known	../preprocessing/spelchek/spelchek.py	/^def known(*words):$/;"	kind:function	line:81
+load_model	../modeling/evaluate_model.py	/^    def load_model($/;"	kind:member	line:64
+main	../data_analyze.py	/^def main():$/;"	kind:function	line:8
+main	../evaluate_model.py	/^def main():$/;"	kind:function	line:6
+main	../train_model.py	/^def main():$/;"	kind:function	line:6
+model	../modeling/evaluate_model.py	/^    model = ''$/;"	kind:variable	line:11
+model	../modeling/train_model.py	/^    model = ''$/;"	kind:variable	line:13
+model_path	../modeling/evaluate_model.py	/^    model_path = 'trained_model'$/;"	kind:variable	line:10
+plot	../plotting_utils/plot_comment_length_hist.py	/^    def plot($/;"	kind:member	line:7
+plot	../plotting_utils/plot_roc_curve.py	/^    def plot($/;"	kind:member	line:6
+plot	../plotting_utils/plot_target_dist.py	/^    def plot($/;"	kind:member	line:6
+plot	../plotting_utils/plot_tfidf.py	/^    def plot($/;"	kind:member	line:10
+plot	../plotting_utils/plot_words_cdf.py	/^    def plot($/;"	kind:member	line:6
+plot_comment_length_hist.py	../plotting_utils/plot_comment_length_hist.py	1;"	kind:file	line:1
+plot_roc_curve.py	../plotting_utils/plot_roc_curve.py	1;"	kind:file	line:1
+plot_target_dist.py	../plotting_utils/plot_target_dist.py	1;"	kind:file	line:1
+plot_tfidf.py	../plotting_utils/plot_tfidf.py	1;"	kind:file	line:1
+plot_words_cdf.py	../plotting_utils/plot_words_cdf.py	1;"	kind:file	line:1
+preprocessing	../modeling/evaluate_model.py	/^    def preprocessing($/;"	kind:member	line:86
+preprocessing	../modeling/train_model.py	/^    def preprocessing($/;"	kind:member	line:102
+preprocessing.py	../preprocessing/preprocessing.py	1;"	kind:file	line:1
+run	../modeling/evaluate_model.py	/^    def run($/;"	kind:member	line:18
+run	../modeling/train_model.py	/^    def run($/;"	kind:member	line:20
+save_model	../modeling/train_model.py	/^    def save_model($/;"	kind:member	line:81
+second_order_variants	../preprocessing/spelchek/spelchek.py	/^def second_order_variants(word):$/;"	kind:function	line:76
+segment_text	../preprocessing/preprocessing.py	/^        def segment_text($/;"	kind:function	line:95
+spelchek.py	../preprocessing/spelchek/spelchek.py	1;"	kind:file	line:1
+split_training_testing	../modeling/train_model.py	/^    def split_training_testing($/;"	kind:member	line:56
+tokenizer	../preprocessing/preprocessing.py	/^    tokenizer = None$/;"	kind:variable	line:12
+train_model	../modeling/train_model.py	/^    def train_model($/;"	kind:member	line:213
+train_model.py	../modeling/train_model.py	1;"	kind:file	line:1
+train_model.py	../train_model.py	1;"	kind:file	line:1
+update_dictionary	../preprocessing/spelchek/spelchek.py	/^def update_dictionary(corpus):$/;"	kind:function	line:51
