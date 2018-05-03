@@ -13,8 +13,17 @@ def main():
     dataset = pandas.read_pickle(
         path=file_path,
     )
+    plotting_utils.temperature_plotter.TemperaturePlotter().plot(
+        dataset=dataset,
+    )
+    plotting_utils.humidity_plotter.HumidityPlotter().plot(
+        dataset=dataset,
+    )
+    plotting_utils.wind_plotter.WindPlotter().plot(
+        dataset=dataset,
+    )
 
-
+    input('boo')
 
 if __name__ == '__main__':
     main()
