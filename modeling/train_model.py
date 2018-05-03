@@ -6,10 +6,6 @@ import preprocessing
 
 
 class TrainModel:
-    embedding_file_path = os.path.join(
-        'data',
-        'glove.6B.50d.txt',
-    )
     model = ''
 
     def __init__(
@@ -23,17 +19,11 @@ class TrainModel:
         labels,
         hyperparameters,
     ):
-        samples_pad_sequences = self.preprocessing(
-            dataset=dataset,
-            hyperparameters=hyperparameters,
-        )
-        training_indexes, testing_indexes = self.split_training_testing(
-            dataset=dataset,
-            hyperparameters=hyperparameters,
-        )
-        embedding_matrix = self.get_embedding_matrix(
-            hyperparameters=hyperparameters,
-        )
+        #preprocessing
+
+        #datasets
+
+        #compil
         self.compile_model(
             embedding_matrix=embedding_matrix,
             hyperparameters=hyperparameters,
@@ -59,25 +49,7 @@ class TrainModel:
         dataset,
         hyperparameters,
     ):
-        dataset['non_harm'] = self.preprocessor.get_no_harm_column(
-            dataset=dataset,
-        )
-        X = numpy.array(
-            range(
-                len(dataset['non_harm'])
-            )
-        )
-        X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(
-            X,
-            dataset['non_harm'],
-            test_size=hyperparameters['test_size'],
-            stratify=dataset['non_harm'],
-        )
-
-        return (
-            X_train,
-            X_test,
-        )
+        pass
 
     def save_model(
         self,
@@ -105,19 +77,7 @@ class TrainModel:
         dataset,
         hyperparameters,
     ):
-        dataset['comment_text'] = self.preprocessor.get_cleaned_comments(
-            dataset['comment_text'],
-        )
-        self.preprocessor.initialize_tokenizer(
-            comment_text=dataset['comment_text'],
-            num_words=hyperparameters['max_features'],
-        )
-        samples_pad_sequences = self.preprocessor.get_pad_sequences(
-            dataset['comment_text'],
-            maxlen=hyperparameters['maxlen']
-        )
-
-        return samples_pad_sequences
+        pass
 
     def get_embedding_matrix(
         self,
