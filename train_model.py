@@ -1,22 +1,14 @@
 import os
 import pandas
-import modeling
+import training
+import preprocessing
 
 
 def main():
-    labels = [
-        'toxic',
-        'severe_toxic',
-        'obscene',
-        'threat',
-        'insult',
-        'identity_hate',
-    ]
-
+    models_architecture_name = 'double_lstm'
+    dataset_config = 'config_1'
     hyperparameters = {
-        'embed_size': 50,
-        'max_features': 20000,
-        'window_length': 100,
+        'window_length': 6,
         'lstm_1_size': 50,
         'lstm_1_dropout': 0.1,
         'dense_1': 50,
@@ -26,16 +18,16 @@ def main():
         'test_size': 0.2,
     }
 
-    train_dataset_path = os.path.join(
-        'data',
-        'train.csv',
+    preprocessor = preprocessing.datasets_structures[dataset_config].Preprocessing(
+        from_file=True,
     )
-    train_dataset = pandas.read_csv(train_dataset_path)
-
-    model_trainer = modeling.train_model.TrainModel()
-    model_trainer.run(
-        dataset=train_dataset,
-        labels=labels,
+    dataset = preprocessor.get_extracted_dataset(
+        data_set_config=dataset_config,
+    )
+    model = training.models_architectures[models_architecture_name]
+    model.run(
+        sampels=samels,
+        target=target,
         hyperparameters=hyperparameters,
     )
 

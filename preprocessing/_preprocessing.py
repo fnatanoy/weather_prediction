@@ -4,12 +4,16 @@ import os
 
 
 class Preprocessing:
-    tokenizer = None
+    full_dataset = None
 
     def __init__(
         self,
+        from_file=True,
     ):
-        pass
+        if from_file:
+            self.full_dataset = self.load_full_dataset()
+        else:
+            self.full_dataset = self.create_full_dataset()
 
     def series_to_supervised(
         self,
@@ -76,3 +80,8 @@ class Preprocessing:
                 number_of_features,
             ),
         )
+
+    def get_extracted_dataset(
+        self,
+    ):
+        raise NotImplemented

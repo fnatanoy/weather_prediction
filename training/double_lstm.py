@@ -6,6 +6,8 @@ from . import _train_model
 class DoubleLSTM(
     _train_model.TrainModel,
 ):
+    models_architecture_name = 'double_lstm'
+
     def compile_model(
         self,
         x,

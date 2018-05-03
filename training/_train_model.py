@@ -6,7 +6,7 @@ import preprocessing
 
 
 class TrainModel:
-    model = ''
+    models_architecture_name = ''
 
     def __init__(
         self,
@@ -14,9 +14,6 @@ class TrainModel:
         self.preprocessor = preprocessing.preprocessing.Preprocessing()
 
     def run(
-        self,
-        dataset,
-        labels,
         hyperparameters,
     ):
         #preprocessing
@@ -25,7 +22,6 @@ class TrainModel:
 
         #compile
         self.compile_model(
-            embedding_matrix=embedding_matrix,
             hyperparameters=hyperparameters,
         )
 

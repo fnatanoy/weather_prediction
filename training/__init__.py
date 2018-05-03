@@ -1,2 +1,6 @@
-from . import train_model
-from . import evaluate_model
+from . import double_lstm
+
+
+models_architectures = {
+    'double_lstm': double_lstm.DoubleLSTM,
+}
