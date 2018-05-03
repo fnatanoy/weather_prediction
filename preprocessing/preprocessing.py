@@ -1,7 +1,5 @@
-import wordsegment
-import nltk.stem.wordnet
-import sklearn.feature_extraction.text
-import keras.preprocessing.text
+import pandas
+import os
 
 
 class Preprocessing:
