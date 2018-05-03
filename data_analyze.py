@@ -6,7 +6,14 @@ import plotting_utils
 
 
 def main():
-    pass
+    file_path = os.path.join(
+        'data',
+        'all_data_without_minTemp.pkl',
+    )
+    dataset = pandas.read_pickle(
+        path=file_path,
+    )
+
 
 
 if __name__ == '__main__':
