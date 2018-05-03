@@ -16,7 +16,7 @@ def main():
     hyperparameters = {
         'embed_size': 50,
         'max_features': 20000,
-        'maxlen': 100,
+        'window_length': 100,
         'lstm_1_size': 50,
         'lstm_1_dropout': 0.1,
         'dense_1': 50,
