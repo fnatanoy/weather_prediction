@@ -6,12 +6,12 @@ import plotting_utils
 
 
 def main():
-    file_path = os.path.join(
+    dataset_path = os.path.join(
         'data',
-        'all_data_without_minTemp.pkl',
+        'all_training_data.pkl',
     )
     dataset = pandas.read_pickle(
-        path=file_path,
+        path=dataset_path,
     )
     plotting_utils.temperature_plotter.TemperaturePlotter().plot(
         dataset=dataset,
@@ -24,6 +24,7 @@ def main():
     )
 
     input('boo')
+
 
 if __name__ == '__main__':
     main()

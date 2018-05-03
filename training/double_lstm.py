@@ -48,7 +48,7 @@ class DoubleLSTM(
             outputs=x,
         )
         self.model.compile(
-            loss='binary_crossentropy',
+            loss='mean_squared_error',
             optimizer='adam',
             metrics=['accuracy'],
         )

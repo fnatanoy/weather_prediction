@@ -12,7 +12,7 @@ class TemperaturePlotter:
             for temperature_model in dataset.columns
             if 'temp' in temperature_model.lower() and 'persist' not in temperature_model.lower()
         ]
-        afula_dataset = dataset[dataset['City'] == 'Afula']
+        afula_dataset = dataset[dataset['city'] == 'Afula']
 
         matplotlib.pyplot.figure()
         ax = matplotlib.pyplot.subplot(111)

@@ -8,12 +8,18 @@ class Preprocessing:
 
     def __init__(
         self,
-        from_file=True,
+        file_name='',
     ):
-        if from_file:
-            self.full_dataset = self.load_full_dataset()
-        else:
+        if file_name is '':
             self.full_dataset = self.create_full_dataset()
+        else:
+            dataset_path = os.path.join(
+                'data',
+                file_name + '.pkl',
+            )
+            self.full_dataset = pandas.read_pickle(
+                path=dataset_path,
+            )
 
     def series_to_supervised(
         self,

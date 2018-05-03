@@ -12,7 +12,7 @@ class WindPlotter:
             for wind_model in dataset.columns
             if 'wind' in wind_model.lower() and 'persist' not in wind_model.lower()
         ]
-        afula_dataset = dataset[dataset['City'] == 'Afula']
+        afula_dataset = dataset[dataset['city'] == 'Afula']
 
         matplotlib.pyplot.figure()
         ax = matplotlib.pyplot.subplot(111)
