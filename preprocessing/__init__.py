@@ -1,5 +1,5 @@
-from . import dataset_configuration_1
+from . import afula_sample
 
 datasets_structures = {
-    'config_1': dataset_configuration_1.DatasetConfiguration1,
+    'afula_sample': afula_sample.AfulaSample,
 }

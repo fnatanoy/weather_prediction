@@ -11,23 +11,45 @@ class TrainModel:
     def __init__(
         self,
     ):
-        self.preprocessor = preprocessing.preprocessing.Preprocessing()
+        pass
 
     def run(
+        self,
+        dataset_config,
         hyperparameters,
     ):
-        #preprocessing
+        preprocessor = preprocessing.datasets_structures[dataset_config](
+            file_name='all_training_data',
+        )
+        dataset = preprocessor.get_extracted_dataset()
 
-        #datasets
+        target = dataset['observedMaxTemp']
+        target = target[hyperparameters['window_size'] - 1:]
 
-        #compile
+        dataset.drop(
+            ['observedMaxTemp'],
+            axis=1,
+            inplace=True,
+        )
+        number_of_features = dataset.shape[1]
+
+        dataset_series = preprocessor.series_to_supervised(
+            dataset=dataset,
+            window_size=hyperparameters['window_size'],
+        )
+        samples = preprocessor.reshape_dataset_to_model_input(
+            dataset_values=dataset_series.values,
+            number_of_samples=dataset_series.shape[0],
+            window_size=hyperparameters['window_size'],
+            number_of_features=number_of_features,
+        )
         self.compile_model(
+            input_shape=samples.shape[1:],
             hyperparameters=hyperparameters,
         )
-
         self.train_model(
-            training_samples=samples_pad_sequences[training_indexes, :],
-            targets=dataset[labels].values[training_indexes, :],
+            samples=samples,
+            target=target,
             hyperparameters=hyperparameters,
         )
         self.save_model()
@@ -75,13 +97,13 @@ class TrainModel:
 
     def train_model(
         self,
-        training_samples,
-        targets,
+        samples,
+        target,
         hyperparameters,
     ):
         self.model.fit(
-            x=training_samples,
-            y=targets,
+            x=samples,
+            y=target,
             batch_size=hyperparameters['batch_size'],
             epochs=hyperparameters['epochs'],
             validation_split=hyperparameters['validation_split'],
@@ -97,8 +119,7 @@ class TrainModel:
 
     def compile_model(
         self,
-        x,
-        y,
+        input_shape,
         hyperparameters,
     ):
         raise NotImplemented

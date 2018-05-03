@@ -10,14 +10,11 @@ class DoubleLSTM(
 
     def compile_model(
         self,
-        x,
-        y,
+        input_shape,
         hyperparameters,
     ):
         inp = keras.layers.Input(
-            shape=(
-                hyperparameters['window_length'],
-            ),
+            shape=input_shape,
         )
         x = keras.layers.LSTM(
             hyperparameters['lstm_1_size'],
@@ -40,7 +37,7 @@ class DoubleLSTM(
             activation='relu',
         )(x)
         x = keras.layers.Dense(
-            6,
+            1,
             activation='sigmoid',
         )(x)
         self.model = keras.models.Model(
@@ -50,6 +47,5 @@ class DoubleLSTM(
         self.model.compile(
             loss='mean_squared_error',
             optimizer='adam',
-            metrics=['accuracy'],
         )
         self.model.summary()
