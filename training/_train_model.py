@@ -6,6 +6,23 @@ import preprocessing
 
 class TrainModel:
     models_architecture_name = ''
+    cities = [
+        'Afula',
+        'Ashdod',
+        'Beer Sheva',
+        'Bet Shean',
+        'Elat',
+        'En Gedi',
+        'Haifa',
+        'Jerusalem',
+        'Lod',
+        'Mizpe Ramon',
+        'Nazareth',
+        'Qazrin',
+        'Tel Aviv',
+        'Tiberias',
+        'Zefat',
+    ]
 
     def __init__(
         self,
@@ -18,48 +35,50 @@ class TrainModel:
         hyperparameters,
     ):
         preprocessor = preprocessing.datasets_structures[dataset_config](
-            file_name='manually_joined_training_set',
+            file_name='train_maxTemp',
         )
-        dataset = preprocessor.get_extracted_dataset()# / 45
-        import ipdb; ipdb.set_trace()
+        for city in self.cities:
+            print(city)
+            dataset = preprocessor.get_extracted_dataset(
+                city=city,
+            ) / 45
+            target = dataset['observedMaxTemp']
+            target = target[hyperparameters['window_size'] - 1:]
 
-        target = dataset['observedMaxTemp']
-        target = target[hyperparameters['window_size'] - 1:]
+            dataset.drop(
+                ['observedMaxTemp'],
+                axis=1,
+                inplace=True,
+            )
+            number_of_features = dataset.shape[1]
 
-        dataset.drop(
-            ['observedMaxTemp'],
-            axis=1,
-            inplace=True,
-        )
-        number_of_features = dataset.shape[1]
+            dataset_series = preprocessor.series_to_supervised(
+                dataset=dataset,
+                window_size=hyperparameters['window_size'],
+            )
 
-        dataset_series = preprocessor.series_to_supervised(
-            dataset=dataset,
-            window_size=hyperparameters['window_size'],
-        )
+            # scaler_samples = sklearn.preprocessing.MinMaxScaler(feature_range=(0, 1))
+            # scaler_target = sklearn.preprocessing.MinMaxScaler(feature_range=(0, 1))
+            # samples = scaler_samples.fit_transform(scaler_samples)
+            # target = scaler_target.fit_transform(scaler_target)
 
-        # scaler_samples = sklearn.preprocessing.MinMaxScaler(feature_range=(0, 1))
-        # scaler_target = sklearn.preprocessing.MinMaxScaler(feature_range=(0, 1))
-        # samples = scaler_samples.fit_transform(scaler_samples)
-        # target = scaler_target.fit_transform(scaler_target)
+            samples = preprocessor.reshape_dataset_to_model_input(
+                dataset_values=dataset_series.values,
+                number_of_samples=dataset_series.shape[0],
+                window_size=hyperparameters['window_size'],
+                number_of_features=number_of_features,
+            )
+            self.compile_model(
+                input_shape=samples.shape[1:],
+                hyperparameters=hyperparameters,
+            )
 
-        samples = preprocessor.reshape_dataset_to_model_input(
-            dataset_values=dataset_series.values,
-            number_of_samples=dataset_series.shape[0],
-            window_size=hyperparameters['window_size'],
-            number_of_features=number_of_features,
-        )
-        self.compile_model(
-            input_shape=samples.shape[1:],
-            hyperparameters=hyperparameters,
-        )
-
-        self.train_model(
-            samples=samples,
-            target=target,
-            hyperparameters=hyperparameters,
-        )
-        self.save_model()
+            self.train_model(
+                samples=samples,
+                target=target,
+                hyperparameters=hyperparameters,
+            )
+            self.save_model()
 
         # self.evaluating_model(
         #     testing_samples=samples_pad_sequences[testing_indexes, :],
