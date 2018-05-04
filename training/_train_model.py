@@ -1,7 +1,6 @@
 import os
-import numpy
-import keras
 import sklearn
+import sklearn.preprocessing
 import preprocessing
 
 
@@ -19,9 +18,10 @@ class TrainModel:
         hyperparameters,
     ):
         preprocessor = preprocessing.datasets_structures[dataset_config](
-            file_name='all_training_data',
+            file_name='manually_joined_training_set',
         )
-        dataset = preprocessor.get_extracted_dataset()
+        dataset = preprocessor.get_extracted_dataset()# / 45
+        import ipdb; ipdb.set_trace()
 
         target = dataset['observedMaxTemp']
         target = target[hyperparameters['window_size'] - 1:]
@@ -37,6 +37,12 @@ class TrainModel:
             dataset=dataset,
             window_size=hyperparameters['window_size'],
         )
+
+        # scaler_samples = sklearn.preprocessing.MinMaxScaler(feature_range=(0, 1))
+        # scaler_target = sklearn.preprocessing.MinMaxScaler(feature_range=(0, 1))
+        # samples = scaler_samples.fit_transform(scaler_samples)
+        # target = scaler_target.fit_transform(scaler_target)
+
         samples = preprocessor.reshape_dataset_to_model_input(
             dataset_values=dataset_series.values,
             number_of_samples=dataset_series.shape[0],
@@ -47,6 +53,7 @@ class TrainModel:
             input_shape=samples.shape[1:],
             hyperparameters=hyperparameters,
         )
+
         self.train_model(
             samples=samples,
             target=target,

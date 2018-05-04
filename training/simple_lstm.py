@@ -37,6 +37,6 @@ class SimpleLSTM(
         )
         self.model.compile(
             loss='mean_squared_error',
-            optimizer='adam',
+            optimizer='adagrad',
         )
         self.model.summary()

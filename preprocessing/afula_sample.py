@@ -7,8 +7,11 @@ class AfulaSample(
     configuration_name = 'afula_sample'
     features = [
         'observedMaxTemp',
-        'maxTemp_EC_1',
-        'maxTemp_C3_2',
+        'persist. value_maxtemp_1',
+        'ec_maxtemp_2',
+        'co_maxtemp_2',
+        'c3_maxtemp_2',
+        'oh_maxtemp_2',
     ]
 
     def get_extracted_dataset(
